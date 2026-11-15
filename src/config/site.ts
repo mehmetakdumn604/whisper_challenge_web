@@ -12,6 +12,8 @@ export const siteConfig = {
   copyrightYear: 2026,
   legalEntity: "Whisper Challenge",
   lastUpdated: "November 15, 2026",
+  appleStandardEulaUrl:
+    "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
 } as const;
 
 export const seoKeywords: string[] = [
