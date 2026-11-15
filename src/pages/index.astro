@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import Modes from "../components/Modes.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { siteConfig } from "../config/site";
+---
+
+<BaseLayout
+  title={siteConfig.name}
+  description="Whisper Challenge — the lip-reading party game with headphones. Pass & play offline or lip-read online with friends. Download free on iOS."
+  path="/"
+>
+  <Hero />
+  <HowItWorks />
+  <Modes />
+  <CtaBand />
+</BaseLayout>

@@ -1,0 +1,151 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site";
+---
+
+<BaseLayout
+  title="Terms of Use"
+  description={`Terms of Use for ${siteConfig.name}. Rules for downloading and playing our lip-reading party game, including subscriptions and acceptable use.`}
+  path="/terms"
+>
+  <article class="legal-page">
+    <div class="container">
+      <h1>Terms of Use</h1>
+      <p class="legal-meta">Last updated: {siteConfig.lastUpdated}</p>
+      <div class="legal-content">
+        <p>
+          These Terms of Use (“Terms”) govern your access to and use of the {siteConfig.name}
+          mobile application and website (the “Service”) operated by {siteConfig.legalEntity}
+          (“we”, “us”, or “our”). By downloading, accessing, or using the Service, you agree to these
+          Terms.
+        </p>
+
+        <h2>1. The Service</h2>
+        <p>
+          {siteConfig.name} is a lip-reading party game you can play locally on one device or online
+          with friends. Features may change over time as we improve the product.
+        </p>
+
+        <h2>2. Eligibility</h2>
+        <p>
+          You must be old enough to use the App Store / Google Play in your region and to consent to
+          these Terms. If you use the Service on behalf of someone else, you confirm you have
+          authority to accept these Terms for them.
+        </p>
+
+        <h2>3. License</h2>
+        <p>
+          We grant you a personal, limited, non-exclusive, non-transferable, revocable license to use
+          the app for entertainment, subject to these Terms and the store rules of Apple or Google.
+        </p>
+
+        <h2>4. Accounts and rooms</h2>
+        <p>
+          Online play may require creating or joining a room. You are responsible for how you share
+          room codes and for conduct during matches. Do not disrupt sessions, harass other players, or
+          attempt to interfere with servers, video sessions, or other users’ devices.
+        </p>
+
+        <h2>5. User content and recordings</h2>
+        <p>
+          You are responsible for phrases you speak, anything visible on camera, and any recordings
+          you choose to save. Do not use the Service to share illegal, hateful, sexual content
+          involving minors, or otherwise harmful material. You grant us a limited license to process
+          live session media solely to operate online play.
+        </p>
+
+        <h2>6. Subscriptions and purchases</h2>
+        <ul>
+          <li>
+            Local pass-and-play is available without a paid subscription. Online features may include
+            a free allowance and paid upgrades (for example weekly, monthly, or yearly Pro, or round
+            packs).
+          </li>
+          <li>
+            Prices are shown in the store at purchase time and may vary by territory.
+          </li>
+          <li>
+            Subscriptions renew automatically unless canceled at least 24 hours before the end of the
+            current period through your Apple ID or Google Play account settings.
+          </li>
+          <li>
+            Refunds are handled by Apple or Google under their respective policies.
+          </li>
+        </ul>
+        <p>
+          For Apple users, Licensed Application End User License Agreement terms also apply:
+          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+            >Apple Standard EULA</a
+          >.
+        </p>
+
+        <h2>7. Acceptable use</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Reverse engineer, scrape, or attack the Service except where law allows</li>
+          <li>Circumvent paywalls, quotas, or security controls</li>
+          <li>Misuse camera/microphone access to harm or secretly record others without consent</li>
+          <li>Use the Service for any unlawful purpose</li>
+        </ul>
+
+        <h2>8. Intellectual property</h2>
+        <p>
+          The Service, branding, decks, UI, and related materials are owned by us or our licensors.
+          These Terms do not transfer ownership to you.
+        </p>
+
+        <h2>9. Third-party services</h2>
+        <p>
+          The Service relies on third parties such as app stores, analytics, crash reporting, live
+          video, backend hosting, and purchase validation. Their terms and privacy policies may also
+          apply.
+        </p>
+
+        <h2>10. Disclaimer</h2>
+        <p>
+          The Service is provided “as is” and “as available.” To the fullest extent permitted by law,
+          we disclaim warranties of merchantability, fitness for a particular purpose, and
+          non-infringement. Party games involve playful social interaction — play responsibly and
+          respect everyone in the room (or on the call).
+        </p>
+
+        <h2>11. Limitation of liability</h2>
+        <p>
+          To the fullest extent permitted by law, we are not liable for indirect, incidental,
+          special, consequential, or punitive damages, or any loss of data, profits, or goodwill
+          arising from your use of the Service. Our total liability for any claim relating to the
+          Service is limited to the greater of (a) the amount you paid us for the Service in the 12
+          months before the claim or (b) USD $50.
+        </p>
+
+        <h2>12. Termination</h2>
+        <p>
+          You may stop using the Service at any time. We may suspend or terminate access if you
+          violate these Terms or if we discontinue the product.
+        </p>
+
+        <h2>13. Changes</h2>
+        <p>
+          We may update these Terms. The “Last updated” date will change when we do. Continued use
+          after changes become effective constitutes acceptance.
+        </p>
+
+        <h2>14. Governing law</h2>
+        <p>
+          These Terms are governed by the laws applicable in your primary place of business for
+          {siteConfig.legalEntity}, without regard to conflict-of-law rules, except where mandatory
+          consumer protections in your country require otherwise.
+        </p>
+
+        <h2>15. Contact</h2>
+        <p>
+          Questions about these Terms:
+          <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>
+        </p>
+        <p>
+          Related: <a href="/privacy">Privacy Policy</a>
+        </p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

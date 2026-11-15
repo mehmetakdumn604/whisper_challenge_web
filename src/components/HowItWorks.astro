@@ -1,0 +1,96 @@
+---
+const steps = [
+  {
+    title: "Headphones on",
+    text: "The guesser plays loud music so they cannot hear the phrase — only see it.",
+  },
+  {
+    title: "Mouth the phrase",
+    text: "The reader says a short line out loud. Exaggerate. Have fun with it.",
+  },
+  {
+    title: "Read the lips",
+    text: "Guess correctly, pass, swap roles, and keep the rematch energy going.",
+  },
+];
+---
+
+<section class="section how" id="how" aria-labelledby="how-title">
+  <div class="container how-grid">
+    <div class="how-intro">
+      <p class="section-kicker">How it works</p>
+      <h2 class="section-title" id="how-title">A lip-reading party in three beats</h2>
+      <p class="section-lede">
+        No complicated rules. Just noise in their ears, laughs in yours, and phrases that get weirder every round.
+      </p>
+    </div>
+    <ol class="steps">
+      {
+        steps.map((step, index) => (
+          <li class="step">
+            <span class="step-index" aria-hidden="true">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .how-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .step {
+    padding: 1.35rem 0;
+    border-top: 1px solid var(--line);
+    animation: rise-in 0.7s var(--ease) both;
+  }
+
+  .step:nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  .step:nth-child(3) {
+    animation-delay: 0.16s;
+  }
+
+  .step-index {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--candy);
+  }
+
+  .step h3 {
+    font-size: 1.55rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .step p {
+    color: var(--ink-soft);
+    max-width: 42ch;
+  }
+
+  @media (min-width: 900px) {
+    .how-grid {
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: start;
+      gap: 4rem;
+    }
+  }
+</style>

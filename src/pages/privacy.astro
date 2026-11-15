@@ -1,0 +1,159 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site";
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description={`Privacy Policy for ${siteConfig.name}. Learn how we collect, use, and protect your information when you play our lip-reading party game.`}
+  path="/privacy"
+>
+
+  <article class="legal-page">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="legal-meta">Last updated: {siteConfig.lastUpdated}</p>
+      <div class="legal-content">
+        <p>
+          This Privacy Policy explains how {siteConfig.legalEntity} (“we”, “us”, or “our”)
+          handles information when you use the {siteConfig.name} mobile application and this website
+          (together, the “Service”).
+        </p>
+
+        <h2>1. Who we are</h2>
+        <p>
+          {siteConfig.name} is a two-player lip-reading party game available on iOS and Android.
+          For privacy questions, contact us at
+          <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>.
+        </p>
+
+        <h2>2. Information we collect</h2>
+        <p>Depending on how you play, we may process:</p>
+        <ul>
+          <li>
+            <strong>Gameplay data:</strong> scores, match history, selected decks, and settings stored
+            on your device.
+          </li>
+          <li>
+            <strong>Online room data:</strong> room codes, join/leave events, and match state needed to
+            run multiplayer sessions.
+          </li>
+          <li>
+            <strong>Audio and camera (online mode):</strong> when you start an online match, the app
+            may access your microphone and camera so players can lip-read over live video. Voice audio
+            from the reader is not intended to be delivered to the guesser as audible speech for the
+            challenge. Streams are processed to provide the live session and are not stored by us as
+            lasting video libraries.
+          </li>
+          <li>
+            <strong>Optional recordings:</strong> if you choose to save a screen recording, media may
+            be written to your device photo library with your permission.
+          </li>
+          <li>
+            <strong>Purchases:</strong> subscription and in-app purchase status are handled by Apple
+            App Store / Google Play and our payment partner (RevenueCat). We receive entitlement
+            status, not your full payment card details.
+          </li>
+          <li>
+            <strong>Diagnostics and analytics:</strong> crash reports, performance metrics, and
+            aggregated usage events (for example via Firebase Analytics, Crashlytics, and Remote
+            Config) to keep the app stable and improve features.
+          </li>
+          <li>
+            <strong>Push notifications:</strong> a device push token if you allow notifications.
+          </li>
+          <li>
+            <strong>Support messages:</strong> whatever you send when you email support.
+          </li>
+        </ul>
+
+        <h2>3. How we use information</h2>
+        <ul>
+          <li>Operate local and online gameplay</li>
+          <li>Sync rooms and live video sessions</li>
+          <li>Provide subscriptions, free quotas, and restore purchases</li>
+          <li>Measure reliability, fix bugs, and tune features</li>
+          <li>Respond to support requests</li>
+          <li>Comply with legal obligations</li>
+        </ul>
+
+        <h2>4. Legal bases (EEA/UK)</h2>
+        <p>
+          Where applicable, we process personal data to perform the Service you request, based on
+          our legitimate interests in running a secure and enjoyable game, and/or with your consent
+          (for example camera, microphone, notifications, or photo library permissions).
+        </p>
+
+        <h2>5. Sharing</h2>
+        <p>We do not sell your personal information. We share data only with:</p>
+        <ul>
+          <li>Infrastructure and backend providers used to run rooms and accounts</li>
+          <li>Live video providers used for online matches</li>
+          <li>Analytics, crash reporting, and remote configuration vendors</li>
+          <li>In-app purchase / subscription processors</li>
+          <li>Authorities when required by law</li>
+        </ul>
+        <p>
+          Other players in an online room may see your display presence and camera feed for the
+          duration of the match.
+        </p>
+
+        <h2>6. Retention</h2>
+        <p>
+          Device-local data stays on your phone until you clear app data or uninstall. Online session
+          data is kept only as long as needed to operate rooms and improve the Service. Support emails
+          are retained as needed to resolve your request.
+        </p>
+
+        <h2>7. Security</h2>
+        <p>
+          We use industry-standard safeguards appropriate to a consumer mobile game. No method of
+          transmission or storage is 100% secure.
+        </p>
+
+        <h2>8. Children</h2>
+        <p>
+          The Service is intended for a general audience and is not directed to children under 13
+          (or the equivalent minimum age in your country). If you believe a child provided personal
+          information, contact us and we will take appropriate steps.
+        </p>
+
+        <h2>9. Your choices and rights</h2>
+        <ul>
+          <li>Revoke camera, microphone, photos, or notification permissions in system settings</li>
+          <li>Disable analytics where the OS or app settings allow</li>
+          <li>Request access, correction, or deletion by emailing support</li>
+          <li>Manage or cancel subscriptions in your Apple ID or Google Play account settings</li>
+        </ul>
+        <p>
+          Depending on your location, you may have additional rights under GDPR, UK GDPR, CCPA/CPRA,
+          or similar laws.
+        </p>
+
+        <h2>10. International transfers</h2>
+        <p>
+          We and our processors may process data in countries other than your own. Where required, we
+          rely on appropriate transfer safeguards.
+        </p>
+
+        <h2>11. This website</h2>
+        <p>
+          Our marketing site at {siteConfig.url} collects standard server/logs data necessary to
+          deliver pages and may use privacy-friendly hosting analytics. It does not require an account.
+        </p>
+
+        <h2>12. Changes</h2>
+        <p>
+          We may update this policy from time to time. The “Last updated” date above will change when
+          we do. Continued use of the Service after an update means you accept the revised policy.
+        </p>
+
+        <h2>13. Contact</h2>
+        <p>
+          Email: <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a><br />
+          App: {siteConfig.name} ({siteConfig.bundleId})
+        </p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

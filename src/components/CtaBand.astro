@@ -1,0 +1,62 @@
+---
+import { siteConfig } from "../config/site";
+---
+
+<section class="section cta" aria-labelledby="cta-title">
+  <div class="container cta-inner">
+    <p class="section-kicker">Ready?</p>
+    <h2 id="cta-title">Headphones on. Start guessing.</h2>
+    <p>
+      Download Whisper Challenge and turn any night into a lip-reading rematch.
+    </p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href={siteConfig.appStoreUrl}>Get Whisper Challenge</a>
+      <a class="btn btn-ghost" href={`mailto:${siteConfig.supportEmail}`}>Contact support</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-inner {
+    text-align: center;
+    padding: clamp(2.2rem, 5vw, 3.4rem);
+    border-radius: calc(var(--radius) + 8px);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255, 209, 102, 0.35), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(255, 77, 141, 0.28), transparent 42%),
+      linear-gradient(135deg, #6324eb, #b721ff 48%, #ff2a85);
+    color: #fff8ef;
+    box-shadow: var(--shadow);
+    animation: rise-in 0.8s var(--ease) both;
+  }
+
+  .cta-inner .section-kicker {
+    color: var(--lemon);
+  }
+
+  .cta-inner h2 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    max-width: 16ch;
+    margin-inline: auto;
+  }
+
+  .cta-inner > p {
+    margin: 0.9rem auto 0;
+    max-width: 40ch;
+    color: rgba(255, 248, 239, 0.9);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .cta-inner .btn-ghost {
+    background: rgba(255, 246, 235, 0.12);
+    color: #fff8ef;
+    border-color: rgba(255, 248, 239, 0.35);
+  }
+</style>

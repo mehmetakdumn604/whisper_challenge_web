@@ -1,0 +1,80 @@
+---
+import { siteConfig } from "../config/site";
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="/brand/app_mark.png" alt="" width="36" height="36" />
+      <div>
+        <strong>{siteConfig.name}</strong>
+        <p>{siteConfig.tagline}</p>
+      </div>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href={`mailto:${siteConfig.supportEmail}`}>Contact</a>
+    </nav>
+    <p class="footer-copy">
+      © {siteConfig.copyrightYear} {siteConfig.legalEntity}. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    background: rgba(44, 27, 77, 0.94);
+    color: #f7efe4;
+    padding: 2.5rem 0 2rem;
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+  }
+
+  .footer-brand img {
+    border-radius: 10px;
+  }
+
+  .footer-brand strong {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+  }
+
+  .footer-brand p {
+    margin-top: 0.15rem;
+    opacity: 0.75;
+    font-size: 0.95rem;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.3rem;
+  }
+
+  .footer-nav a {
+    text-decoration: none;
+    font-weight: 700;
+    opacity: 0.85;
+  }
+
+  .footer-nav a:hover {
+    opacity: 1;
+  }
+
+  .footer-copy {
+    opacity: 0.6;
+    font-size: 0.9rem;
+  }
+</style>

@@ -1,0 +1,89 @@
+---
+import { siteConfig } from "../config/site";
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label={`${siteConfig.name} home`}>
+      <img src="/brand/app_mark.png" alt="" width="40" height="40" />
+      <span>{siteConfig.name}</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/#how">How it works</a>
+      <a href="/#modes">Modes</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </nav>
+    <a class="btn btn-primary header-cta" href={siteConfig.appStoreUrl}>
+      Get the app
+    </a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(14px);
+    background: rgba(255, 246, 235, 0.78);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 72px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .brand img {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .nav {
+    display: none;
+    margin-left: auto;
+    gap: 1.25rem;
+  }
+
+  .nav a {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+
+  .nav a:hover {
+    color: var(--ink);
+  }
+
+  .header-cta {
+    margin-left: auto;
+    min-height: 44px;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  @media (min-width: 860px) {
+    .nav {
+      display: flex;
+    }
+
+    .header-cta {
+      margin-left: 0;
+    }
+  }
+</style>

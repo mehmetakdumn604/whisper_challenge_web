@@ -1,0 +1,252 @@
+:root {
+  --cream: #fff6eb;
+  --cream-deep: #f3e6d4;
+  --ink: #1a1028;
+  --ink-soft: #3d3154;
+  --grape: #5b2be1;
+  --grape-deep: #3f1aa8;
+  --candy: #ff4d8d;
+  --lemon: #ffd166;
+  --mint: #2ee6a6;
+  --dusk: #2c1b4d;
+  --spot: #1db954;
+  --line: rgba(26, 16, 40, 0.12);
+  --shadow: 0 24px 60px rgba(44, 27, 77, 0.18);
+  --radius: 18px;
+  --font-display: "Baloo 2", "Trebuchet MS", sans-serif;
+  --font-body: "Nunito", "Segoe UI", sans-serif;
+  --max: 1120px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(91, 43, 225, 0.12), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(255, 77, 141, 0.14), transparent 50%),
+    linear-gradient(180deg, var(--cream) 0%, #ffe8cf 48%, var(--cream-deep) 100%);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  width: min(100% - 2rem, var(--max));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    background 0.25s var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--lemon);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background: var(--spot);
+  color: #06140a;
+  box-shadow: 0 12px 28px rgba(29, 185, 84, 0.35);
+}
+
+.btn-primary:hover {
+  background: #17a34a;
+}
+
+.btn-ghost {
+  background: rgba(255, 246, 235, 0.72);
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost:hover {
+  background: #fff;
+}
+
+.section {
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grape);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  max-width: 16ch;
+}
+
+.section-lede {
+  margin-top: 1rem;
+  max-width: 42ch;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+
+.legal-page {
+  padding: clamp(2.5rem, 6vw, 4rem) 0 5rem;
+}
+
+.legal-page h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  margin-bottom: 0.5rem;
+}
+
+.legal-meta {
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.legal-content {
+  max-width: 72ch;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  backdrop-filter: blur(10px);
+}
+
+.legal-content h2 {
+  font-size: 1.45rem;
+  margin: 1.8rem 0 0.7rem;
+}
+
+.legal-content h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-content p,
+.legal-content li {
+  color: var(--ink-soft);
+}
+
+.legal-content p + p {
+  margin-top: 0.9rem;
+}
+
+.legal-content ul {
+  margin: 0.7rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.legal-content li + li {
+  margin-top: 0.4rem;
+}
+
+.legal-content a {
+  color: var(--grape-deep);
+  font-weight: 700;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
