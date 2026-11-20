@@ -58,7 +58,10 @@ const structuredData = {
         price: "0",
         priceCurrency: "USD",
       },
-      url: siteConfig.appStoreUrl,
+      url: siteConfig.url,
+      installUrl: [siteConfig.appStoreUrl, siteConfig.playStoreUrl].filter(
+        Boolean,
+      ),
     },
   ],
 };

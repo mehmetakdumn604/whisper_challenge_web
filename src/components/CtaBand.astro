@@ -10,8 +10,14 @@ import { siteConfig } from "../config/site";
       Download Whisper Challenge and turn any night into a lip-reading rematch.
     </p>
     <div class="cta-actions">
-      <a class="btn btn-primary" href={siteConfig.appStoreUrl}>Get Whisper Challenge</a>
-      <a class="btn btn-ghost" href={`mailto:${siteConfig.supportEmail}`}>Contact support</a>
+      <a class="btn btn-primary" href={siteConfig.appStoreUrl}>Download on the App Store</a>
+      {
+        siteConfig.playStoreUrl ? (
+          <a class="btn btn-ghost" href={siteConfig.playStoreUrl}>
+            Get it on Google Play
+          </a>
+        ) : null
+      }
     </div>
   </div>
 </section>

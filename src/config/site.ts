@@ -6,8 +6,10 @@ export const siteConfig = {
   url: "https://whisper.makduman.com",
   locale: "en_US",
   supportEmail: "support@makduman.com",
-  appStoreUrl: "https://apps.apple.com/app/id6834519592",
-  playStoreUrl: "",
+  appStoreUrl:
+    "https://apps.apple.com/us/app/whisper-challenge-lip-reading/id6834519592",
+  playStoreUrl:
+    "https://play.google.com/store/apps/details?id=com.whisper.challenge",
   bundleId: "com.whisper.challenge",
   copyrightYear: 2026,
   legalEntity: "Whisper Challenge",
