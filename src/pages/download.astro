@@ -1,0 +1,92 @@
+---
+import { siteConfig } from "../config/site";
+
+const { appStoreUrl, playStoreUrl, name } = siteConfig;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Download {name}</title>
+    <script is:inline define:vars={{ appStoreUrl, playStoreUrl }}>
+      (function () {
+        var ua = navigator.userAgent || "";
+        var isAndroid = /Android/i.test(ua);
+        var isIOS =
+          /iPhone|iPad|iPod/i.test(ua) ||
+          (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+        if (isAndroid && playStoreUrl) {
+          location.replace(playStoreUrl);
+          return;
+        }
+        if (isIOS) {
+          location.replace(appStoreUrl);
+          return;
+        }
+      })();
+    </script>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+        font-family: "Nunito", "Segoe UI", sans-serif;
+        background:
+          radial-gradient(ellipse at 20% 0%, #ffd16655, transparent 45%),
+          radial-gradient(ellipse at 90% 100%, #ff4d8d22, transparent 40%),
+          #fff6eb;
+        color: #1a1028;
+      }
+      main {
+        width: min(100%, 22rem);
+        text-align: center;
+      }
+      h1 {
+        margin: 0 0 0.5rem;
+        font-family: "Baloo 2", "Trebuchet MS", sans-serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+      }
+      p {
+        margin: 0 0 1.5rem;
+        color: #3d3154;
+        line-height: 1.45;
+      }
+      .links {
+        display: grid;
+        gap: 0.75rem;
+      }
+      a {
+        display: block;
+        padding: 0.85rem 1rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        color: #fff;
+        background: #5b2be1;
+      }
+      a:hover {
+        background: #3f1aa8;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Download {name}</h1>
+      <p>Choose your store to get the app.</p>
+      <div class="links">
+        <a href={appStoreUrl}>App Store</a>
+        {
+          playStoreUrl ? (
+            <a href={playStoreUrl}>Google Play</a>
+          ) : null
+        }
+      </div>
+    </main>
+  </body>
+</html>
