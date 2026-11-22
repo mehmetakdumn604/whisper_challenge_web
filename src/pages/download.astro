@@ -1,7 +1,9 @@
 ---
+import StoreBadges from "../components/StoreBadges.astro";
 import { siteConfig } from "../config/site";
 
 const { appStoreUrl, playStoreUrl, name } = siteConfig;
+const iconVersion = "2";
 ---
 
 <!doctype html>
@@ -11,6 +13,29 @@ const { appStoreUrl, playStoreUrl, name } = siteConfig;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <title>Download {name}</title>
+    <link rel="icon" href={`/favicon.ico?v=${iconVersion}`} sizes="any" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href={`/favicon-32.png?v=${iconVersion}`}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href={`/favicon-16.png?v=${iconVersion}`}
+    />
+    <link
+      rel="apple-touch-icon"
+      href={`/apple-touch-icon.png?v=${iconVersion}`}
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
     <script is:inline define:vars={{ appStoreUrl, playStoreUrl }}>
       (function () {
         var ua = navigator.userAgent || "";
@@ -29,64 +54,75 @@ const { appStoreUrl, playStoreUrl, name } = siteConfig;
       })();
     </script>
     <style>
+      :root {
+        --cream: #fff6eb;
+        --cream-deep: #f3e6d4;
+        --ink: #1a1028;
+        --ink-soft: #3d3154;
+        --lemon: #ffd166;
+        --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        --font-display: "Baloo 2", "Trebuchet MS", sans-serif;
+        --font-body: "Nunito", "Segoe UI", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
       body {
         margin: 0;
         min-height: 100dvh;
         display: grid;
         place-items: center;
         padding: 1.5rem;
-        font-family: "Nunito", "Segoe UI", sans-serif;
+        font-family: var(--font-body);
+        color: var(--ink);
         background:
-          radial-gradient(ellipse at 20% 0%, #ffd16655, transparent 45%),
-          radial-gradient(ellipse at 90% 100%, #ff4d8d22, transparent 40%),
-          #fff6eb;
-        color: #1a1028;
+          radial-gradient(900px 480px at 12% -8%, rgba(91, 43, 225, 0.14), transparent 55%),
+          radial-gradient(700px 420px at 100% 0%, rgba(255, 77, 141, 0.14), transparent 50%),
+          linear-gradient(180deg, var(--cream) 0%, #ffe8cf 50%, var(--cream-deep) 100%);
+        -webkit-font-smoothing: antialiased;
       }
       main {
         width: min(100%, 22rem);
         text-align: center;
       }
+      .mark {
+        width: 112px;
+        height: 112px;
+        margin: 0 auto 1.1rem;
+        border-radius: 28px;
+        box-shadow: 0 18px 40px rgba(44, 27, 77, 0.18);
+      }
       h1 {
-        margin: 0 0 0.5rem;
-        font-family: "Baloo 2", "Trebuchet MS", sans-serif;
-        font-size: 1.75rem;
-        font-weight: 700;
+        margin: 0 0 0.4rem;
+        font-family: var(--font-display);
+        font-size: clamp(1.7rem, 5vw, 2.1rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
       }
       p {
-        margin: 0 0 1.5rem;
-        color: #3d3154;
+        margin: 0 0 1.6rem;
+        color: var(--ink-soft);
         line-height: 1.45;
+        font-weight: 600;
       }
-      .links {
-        display: grid;
-        gap: 0.75rem;
-      }
-      a {
-        display: block;
-        padding: 0.85rem 1rem;
-        border-radius: 999px;
-        text-decoration: none;
-        font-weight: 700;
-        color: #fff;
-        background: #5b2be1;
-      }
-      a:hover {
-        background: #3f1aa8;
+      .badges {
+        justify-content: center;
       }
     </style>
   </head>
   <body>
     <main>
-      <h1>Download {name}</h1>
+      <img
+        class="mark"
+        src="/brand/app_mark.png"
+        alt=""
+        width="112"
+        height="112"
+      />
+      <h1>{name}</h1>
       <p>Choose your store to get the app.</p>
-      <div class="links">
-        <a href={appStoreUrl}>App Store</a>
-        {
-          playStoreUrl ? (
-            <a href={playStoreUrl}>Google Play</a>
-          ) : null
-        }
-      </div>
+      <StoreBadges class="badges" />
     </main>
   </body>
 </html>

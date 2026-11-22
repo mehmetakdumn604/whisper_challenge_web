@@ -1,37 +1,36 @@
 ---
 import { siteConfig } from "../config/site";
+import StoreBadges from "./StoreBadges.astro";
 ---
 
 <section class="hero" aria-labelledby="hero-brand">
   <div class="hero-media" aria-hidden="true">
-    <img
-      src="/brand/hero.webp"
-      alt=""
-      width="1600"
-      height="1200"
-      fetchpriority="high"
-    />
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/brand/videos/lip_read_duo_poster.webp"
+    >
+      <source src="/brand/videos/lip_read_duo.mp4" type="video/mp4" />
+    </video>
     <div class="hero-veil"></div>
   </div>
   <div class="container hero-copy">
+    <img
+      class="hero-mark"
+      src="/brand/app_mark.png"
+      alt=""
+      width="72"
+      height="72"
+    />
     <h1 id="hero-brand">{siteConfig.name}</h1>
     <p class="hero-lede">
       Headphones on. Loud music. Read their lips — then laugh and rematch.
     </p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href={siteConfig.appStoreUrl}>Download on the App Store</a>
-      {
-        siteConfig.playStoreUrl ? (
-          <a class="btn btn-ghost" href={siteConfig.playStoreUrl}>
-            Get it on Google Play
-          </a>
-        ) : (
-          <a class="btn btn-ghost" href="#how">
-            See how it works
-          </a>
-        )
-      }
-    </div>
+    <StoreBadges class="hero-actions" />
   </div>
 </section>
 
@@ -49,12 +48,13 @@ import { siteConfig } from "../config/site";
     inset: 0;
   }
 
-  .hero-media img {
+  .hero-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 30%;
-    animation: float-soft 8s ease-in-out infinite;
+    object-position: center 35%;
+    transform: scale(1.04);
+    animation: float-soft 10s ease-in-out infinite;
   }
 
   .hero-veil {
@@ -63,11 +63,11 @@ import { siteConfig } from "../config/site";
     background:
       linear-gradient(
         180deg,
-        rgba(26, 16, 40, 0.18) 0%,
-        rgba(26, 16, 40, 0.35) 42%,
-        rgba(26, 16, 40, 0.82) 100%
+        rgba(26, 16, 40, 0.22) 0%,
+        rgba(26, 16, 40, 0.4) 40%,
+        rgba(26, 16, 40, 0.88) 100%
       ),
-      radial-gradient(circle at 70% 20%, rgba(255, 77, 141, 0.25), transparent 45%);
+      radial-gradient(circle at 72% 18%, rgba(255, 77, 141, 0.28), transparent 42%);
   }
 
   .hero-copy {
@@ -75,7 +75,16 @@ import { siteConfig } from "../config/site";
     z-index: 1;
     padding-block: clamp(5rem, 14vw, 8rem) clamp(2.5rem, 7vw, 4.5rem);
     color: #fff8ef;
-    animation: rise-in 0.8s var(--ease) both;
+    animation: rise-in 0.85s var(--ease) both;
+  }
+
+  .hero-mark {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 1.1rem;
+    border-radius: 20px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    animation: rise-in 0.9s var(--ease) 0.05s both;
   }
 
   .hero-copy h1 {
@@ -92,19 +101,6 @@ import { siteConfig } from "../config/site";
   }
 
   .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
     margin-top: 1.6rem;
-  }
-
-  .hero-actions .btn-ghost {
-    background: rgba(255, 246, 235, 0.12);
-    color: #fff8ef;
-    border-color: rgba(255, 248, 239, 0.35);
-  }
-
-  .hero-actions .btn-ghost:hover {
-    background: rgba(255, 246, 235, 0.22);
   }
 </style>

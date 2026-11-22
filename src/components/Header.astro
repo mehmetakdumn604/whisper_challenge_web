@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../config/site";
+import StoreBadges from "./StoreBadges.astro";
 ---
 
 <header class="site-header">
@@ -14,9 +15,7 @@ import { siteConfig } from "../config/site";
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
     </nav>
-    <a class="btn btn-primary header-cta" href={siteConfig.appStoreUrl}>
-      Get the app
-    </a>
+    <StoreBadges class="header-badges" size="sm" />
   </div>
 </header>
 
@@ -70,11 +69,18 @@ import { siteConfig } from "../config/site";
     color: var(--ink);
   }
 
-  .header-cta {
+  .header-badges {
     margin-left: auto;
-    min-height: 44px;
-    padding: 0.65rem 1.1rem;
-    font-size: 0.95rem;
+  }
+
+  @media (max-width: 720px) {
+    .brand span {
+      display: none;
+    }
+
+    .header-badges :global(a:last-child) {
+      display: none;
+    }
   }
 
   @media (min-width: 860px) {
@@ -82,7 +88,7 @@ import { siteConfig } from "../config/site";
       display: flex;
     }
 
-    .header-cta {
+    .header-badges {
       margin-left: 0;
     }
   }

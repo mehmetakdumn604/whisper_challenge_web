@@ -1,0 +1,83 @@
+---
+import { siteConfig } from "../config/site";
+
+interface Props {
+  class?: string;
+  size?: "sm" | "md";
+}
+
+const { class: className = "", size = "md" } = Astro.props;
+---
+
+<div class:list={["store-badges", `store-badges--${size}`, className]}>
+  <a href={siteConfig.appStoreUrl} aria-label="Download on the App Store">
+    <img
+      src="/brand/badges/app-store.svg"
+      alt="Download on the App Store"
+      width="148"
+      height="44"
+      loading="lazy"
+    />
+  </a>
+  {
+    siteConfig.playStoreUrl ? (
+      <a href={siteConfig.playStoreUrl} aria-label="Get it on Google Play">
+        <img
+          class="store-badges__play"
+          src="/brand/badges/google-play.png"
+          alt="Get it on Google Play"
+          width="166"
+          height="64"
+          loading="lazy"
+        />
+      </a>
+    ) : null
+  }
+</div>
+
+<style>
+  .store-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .store-badges a {
+    display: block;
+    line-height: 0;
+    transition:
+      transform 0.25s var(--ease),
+      opacity 0.25s var(--ease);
+  }
+
+  .store-badges a:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  .store-badges a:focus-visible {
+    outline: 3px solid var(--lemon);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  .store-badges img {
+    height: 44px;
+    width: auto;
+  }
+
+  .store-badges__play {
+    height: 64px;
+    margin-block: -10px;
+  }
+
+  .store-badges--sm img {
+    height: 36px;
+  }
+
+  .store-badges--sm .store-badges__play {
+    height: 52px;
+    margin-block: -8px;
+  }
+</style>

@@ -1,24 +1,22 @@
 ---
-import { siteConfig } from "../config/site";
+import StoreBadges from "./StoreBadges.astro";
 ---
 
 <section class="section cta" aria-labelledby="cta-title">
   <div class="container cta-inner">
+    <img
+      class="cta-mark"
+      src="/brand/app_mark.png"
+      alt=""
+      width="64"
+      height="64"
+    />
     <p class="section-kicker">Ready?</p>
     <h2 id="cta-title">Headphones on. Start guessing.</h2>
     <p>
       Download Whisper Challenge and turn any night into a lip-reading rematch.
     </p>
-    <div class="cta-actions">
-      <a class="btn btn-primary" href={siteConfig.appStoreUrl}>Download on the App Store</a>
-      {
-        siteConfig.playStoreUrl ? (
-          <a class="btn btn-ghost" href={siteConfig.playStoreUrl}>
-            Get it on Google Play
-          </a>
-        ) : null
-      }
-    </div>
+    <StoreBadges class="cta-actions" />
   </div>
 </section>
 
@@ -34,6 +32,14 @@ import { siteConfig } from "../config/site";
     color: #fff8ef;
     box-shadow: var(--shadow);
     animation: rise-in 0.8s var(--ease) both;
+  }
+
+  .cta-mark {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
   }
 
   .cta-inner .section-kicker {
@@ -53,16 +59,7 @@ import { siteConfig } from "../config/site";
   }
 
   .cta-actions {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 0.8rem;
     margin-top: 1.5rem;
-  }
-
-  .cta-inner .btn-ghost {
-    background: rgba(255, 246, 235, 0.12);
-    color: #fff8ef;
-    border-color: rgba(255, 248, 239, 0.35);
   }
 </style>
